@@ -6,6 +6,7 @@ plugins {
 
     // Is third party plugins
     alias(libs.plugins.kapt) apply false
+    alias(libs.plugins.ktlintPlugin) apply false
     alias(libs.plugins.daggerPlugin) apply false
 }
 true // Needed to make the Suppress annotation work for the plugins block

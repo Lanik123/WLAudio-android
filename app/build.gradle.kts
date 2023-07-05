@@ -1,3 +1,5 @@
+import org.jlleitschuh.gradle.ktlint.KtlintExtension
+
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
     alias(libs.plugins.androidApplication)
@@ -5,6 +7,7 @@ plugins {
 
     // Is third party plugins
     alias(libs.plugins.kapt)
+    alias(libs.plugins.ktlintPlugin)
     alias(libs.plugins.daggerPlugin)
 }
 
@@ -78,4 +81,13 @@ dependencies {
     kaptTest(libs.dagger.hilt.compiler)
     androidTestImplementation(libs.dagger.hilt.android.testing)
     kaptAndroidTest(libs.dagger.hilt.compiler)
+    debugImplementation(libs.leakcanary)
+}
+
+kapt {
+    correctErrorTypes=true
+}
+
+configure<KtlintExtension> {
+    version.set("0.49.1")
 }
