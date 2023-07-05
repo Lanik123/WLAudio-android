@@ -1,6 +1,7 @@
 [versions]
 agp = "8.2.0-alpha07"
 kotlin = "1.8.21"
+kapt-ver = "1.8.21"
 core-ktx = "1.9.0"
 junit = "4.13.2"
 androidx-test-ext-junit = "1.1.5"
@@ -8,6 +9,7 @@ espresso-core = "3.5.1"
 lifecycle-runtime-ktx = "2.6.1"
 activity-compose = "1.7.2"
 compose-bom = "2023.03.00"
+dagger-ver = "2.46.1"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -25,9 +27,18 @@ ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 material3 = { group = "androidx.compose.material3", name = "material3" }
 
+# Is third party libs
+dagger-hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "dagger-ver" }
+dagger-hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "dagger-ver" }
+dagger-hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "dagger-ver" }
+
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+
+# Is third party plugins
+kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kapt-ver" }
+daggerPlugin = { id = "com.google.dagger.hilt.android", version.ref = "dagger-ver" }
 
 [bundles]
 
