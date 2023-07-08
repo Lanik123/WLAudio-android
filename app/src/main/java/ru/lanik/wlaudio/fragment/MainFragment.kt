@@ -11,6 +11,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import ru.lanik.wlaudio.ui.screen.main.MainScreen
 import ru.lanik.wlaudio.ui.screen.main.MainViewModel
 import ru.lanik.wlaudio.ui.screen.main.MainViewModelFactory
+import ru.lanik.wlaudio.ui.theme.SetNavigationBarColor
+import ru.lanik.wlaudio.ui.theme.SetStatusBarColor
 import ru.lanik.wlaudio.ui.theme.WLAudioTheme
 import javax.inject.Inject
 
@@ -31,6 +33,12 @@ class MainFragment : Fragment() {
         return ComposeView(requireContext()).apply {
             setContent {
                 WLAudioTheme {
+                    SetStatusBarColor(
+                        color = WLAudioTheme.colors.primaryBackground,
+                    )
+                    SetNavigationBarColor(
+                        color = WLAudioTheme.colors.primaryBackground,
+                    )
                     MainScreen(
                         viewModel = viewModel,
                     )
