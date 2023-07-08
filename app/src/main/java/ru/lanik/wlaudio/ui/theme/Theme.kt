@@ -1,16 +1,68 @@
 package ru.lanik.wlaudio.ui.theme
 
+import android.app.Activity
+import android.content.ContextWrapper
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.SideEffect
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.view.WindowCompat
+import dagger.hilt.android.internal.managers.ViewComponentManager
 
 enum class WLAudioSize {
     Small, Medium, Big,
+}
+
+@Composable
+private fun getActivityContext(): Activity {
+    val view = LocalView.current
+    return if (view.context is ViewComponentManager.FragmentContextWrapper) {
+        ((view.context as ContextWrapper).baseContext as Activity)
+    } else {
+        view.context as Activity
+    }
+}
+
+@Composable
+fun SetStatusBarColor(
+    color: Color,
+) {
+    val darkTheme = isSystemInDarkTheme()
+    val view = LocalView.current
+    val activityContext = getActivityContext()
+    if (!view.isInEditMode) {
+        SideEffect {
+            val window = activityContext.window
+            window.statusBarColor = color.toArgb()
+            WindowCompat.getInsetsController(window, view)
+                .isAppearanceLightStatusBars = !darkTheme
+        }
+    }
+}
+
+@Composable
+fun SetNavigationBarColor(
+    color: Color,
+) {
+    val darkTheme = isSystemInDarkTheme()
+    val view = LocalView.current
+    val activityContext = getActivityContext()
+    if (!view.isInEditMode) {
+        SideEffect {
+            val window = activityContext.window
+            window.navigationBarColor = color.toArgb()
+            WindowCompat.getInsetsController(window, view)
+                .isAppearanceLightNavigationBars = !darkTheme
+        }
+    }
 }
 
 @Composable
