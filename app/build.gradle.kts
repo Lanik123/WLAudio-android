@@ -81,6 +81,7 @@ dependencies {
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
     implementation(libs.fragment.ktx)
+    implementation(libs.ktor.network)
     implementation(libs.dagger.hilt.android)
     kapt(libs.dagger.hilt.compiler)
     testImplementation(libs.dagger.hilt.android.testing)
