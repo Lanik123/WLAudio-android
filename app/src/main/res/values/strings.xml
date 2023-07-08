@@ -2,4 +2,11 @@
     <string name="app_name">WLAudio</string>
 
     <string name="main_fragment_name">Main</string>
+    <string name="main_text_field_ip">IP Address</string>
+    <string name="main_text_field_port">Port</string>
+    <string name="main_toast_client">Invalid IP address or port</string>
+    <string name="main_toast_server">Something wrong happened…</string>
+    <string name="main_text_status">Status</string>
+    <string name="main_text_state_active">Active</string>
+    <string name="main_text_state_not_active">Not active</string>
 </resources>
