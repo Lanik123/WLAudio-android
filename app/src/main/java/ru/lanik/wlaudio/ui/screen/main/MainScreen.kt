@@ -4,6 +4,7 @@ import android.content.Context
 import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -13,12 +14,15 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Close
 import androidx.compose.material.icons.rounded.PlayArrow
+import androidx.compose.material.icons.rounded.Settings
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -41,35 +45,61 @@ import ru.lanik.wlaudio.ui.theme.WLAudioTheme
 fun MainScreen(
     viewModel: MainViewModel,
 ) {
-    Column(
+    Box(
         modifier = Modifier
             .fillMaxSize()
             .background(WLAudioTheme.colors.primaryBackground),
-        verticalArrangement = Arrangement.SpaceAround,
-        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Text(
-            text = stringResource(id = R.string.app_name),
-            color = WLAudioTheme.colors.primaryText,
-            style = WLAudioTheme.typography.heading,
-            fontSize = 60.sp,
-            softWrap = false,
-        )
-        if (true) {
-            ClientScreen(
-                isConnected = false,
-                onConnectClick = {
-                    return@ClientScreen false
-                },
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(WLAudioTheme.shapes.generalPadding),
+            horizontalArrangement = Arrangement.End,
+        ) {
+            FloatingActionButton(
+                onClick = { viewModel.navigateTo(R.id.action_main_to_sett) },
+                containerColor = WLAudioTheme.colors.secondaryBackground,
+                shape = CircleShape,
+                modifier = Modifier.size(36.dp),
+            ) {
+                Icon(
+                    imageVector = Icons.Rounded.Settings,
+                    contentDescription = null,
+                    tint = WLAudioTheme.colors.tintColor,
+                    modifier = Modifier.size(24.dp),
+                )
+            }
+        }
+
+        Column(
+            modifier = Modifier
+                .fillMaxSize(),
+            verticalArrangement = Arrangement.SpaceAround,
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            Text(
+                text = stringResource(id = R.string.app_name),
+                color = WLAudioTheme.colors.primaryText,
+                style = WLAudioTheme.typography.heading,
+                fontSize = 60.sp,
+                softWrap = false,
             )
-        } else {
-            ServerScreen(
-                isStarted = false,
-                address = "",
-                onStartClick = {
-                    return@ServerScreen false
-                },
-            )
+            if (true) {
+                ClientScreen(
+                    isConnected = false,
+                    onConnectClick = {
+                        return@ClientScreen false
+                    },
+                )
+            } else {
+                ServerScreen(
+                    isStarted = false,
+                    address = "",
+                    onStartClick = {
+                        return@ServerScreen false
+                    },
+                )
+            }
         }
     }
 }
