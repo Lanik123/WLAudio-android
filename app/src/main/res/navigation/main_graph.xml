@@ -8,5 +8,14 @@
         android:id="@+id/MainFragment"
         android:name="ru.lanik.wlaudio.fragment.MainFragment"
         android:label="@string/main_fragment_name" >
+        <action
+            android:id="@+id/action_main_to_sett"
+            app:destination="@id/SettingsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/SettingsFragment"
+        android:name="ru.lanik.wlaudio.fragment.SettingsFragment"
+        android:label="@string/settings_fragment_name" >
     </fragment>
 </navigation>

@@ -20,6 +20,7 @@ import ru.lanik.wlaudio.data.SettingsManager
 import ru.lanik.wlaudio.di.qualifier.SettingsCoroutineScopeQualifier
 import ru.lanik.wlaudio.model.SettingsModel
 import ru.lanik.wlaudio.ui.screen.main.MainViewModelFactory
+import ru.lanik.wlaudio.ui.screen.settings.SettingsViewModelFactory
 import java.io.InputStream
 import java.io.OutputStream
 import javax.inject.Singleton
@@ -75,4 +76,8 @@ class AppModule {
     @Provides
     @Singleton
     fun provideMainViewModelFactory(): MainViewModelFactory = MainViewModelFactory()
+
+    @Provides
+    @Singleton
+    fun provideSettingsViewModelFactory(): SettingsViewModelFactory = SettingsViewModelFactory()
 }

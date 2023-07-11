@@ -9,4 +9,15 @@
     <string name="main_text_status">Status</string>
     <string name="main_text_state_active">Active</string>
     <string name="main_text_state_not_active">Not active</string>
+
+    <string name="settings_fragment_name">Settings</string>
+    <string name="settings_action_enable_dart_theme">Dark Theme</string>
+    <string name="settings_action_text_size">Text Size</string>
+    <string name="settings_action_padding_size">Padding Size</string>
+    <string name="settings_action_cornel_style">Corner Style</string>
+    <string name="settings_option_size_small">Small</string>
+    <string name="settings_option_size_medium">Medium</string>
+    <string name="settings_option_size_big">Big</string>
+    <string name="settings_option_shape_rounded">Rounded</string>
+    <string name="settings_option_shape_flat">Flat</string>
 </resources>
