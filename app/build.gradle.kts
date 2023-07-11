@@ -8,6 +8,7 @@ plugins {
     // Is third party plugins
     alias(libs.plugins.kapt)
     alias(libs.plugins.ktlintPlugin)
+    alias(libs.plugins.kotlinSerialization)
     alias(libs.plugins.daggerPlugin)
 }
 
@@ -82,6 +83,8 @@ dependencies {
     implementation(libs.navigation.ui)
     implementation(libs.fragment.ktx)
     implementation(libs.ktor.network)
+    implementation(libs.json.serialization)
+    implementation(libs.datastore)
     implementation(libs.dagger.hilt.android)
     kapt(libs.dagger.hilt.compiler)
     testImplementation(libs.dagger.hilt.android.testing)
